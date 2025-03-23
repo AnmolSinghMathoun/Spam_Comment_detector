@@ -45,7 +45,7 @@ def clean_text(text):
 # 2. YouTube API Setup
 
 # IMPORTANT: Replace "YOUR_API_KEY" with a valid YouTube Data API key.
-API_KEY = "AIzaSyCZ8Wd1RX9ZkJOdg8_SqOkH-V6T9a7R8K4"
+API_KEY = "(Your Personal API Address)"
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 def get_video_id(url):
