@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Spam Detector</title>
+  <script>
+    async function analyzeComments() {
+      const videoLink = document.getElementById('videoLink').value;
+      const response = await fetch('/analyze', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ link: videoLink })
+      });
+
+      const result = await response.json();
+      document.getElementById('result').innerHTML = `Spam: ${result.spam}, Ham: ${result.ham}`;
+    }
+  </script>
+</head>
+<body>
+  <h1>YouTube Comment Spam Detector</h1>
+  <input type="url" id="videoLink" placeholder="Enter YouTube Video Link" />
+  <button onclick="analyzeComments()">Analyze Comments</button>
+  <p id="result"></p>
+</body>
+</html>
